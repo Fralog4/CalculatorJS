@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+</head>
+<body>
+
+    <section class="section">
+        <nav class="navbar">
+            <div class="container">
+                <div id="navMenu" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item">Home</a>
+                        <a class="navbar-item">Documentation</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-dark">Github</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero is-warning is-fullheight-with-navbar">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <h1 class="title has-text-centered">Calculator</h1>
+
+                                <div class="box has-text-right has-background-light p-4" id="display">0</div>
+
+                                <div class="columns is-multiline is-mobile">
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">7</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">8</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">9</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">4</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">5</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">6</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">1</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">2</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">3</button>
+                                    </div>
+                                    <div class="column is-two-thirds">
+                                        <button class="button is-large is-fullwidth">0</button>
+                                    </div>
+                                    <div class="column is-one-third">
+                                        <button class="button is-large is-fullwidth">.</button>
+                                    </div>
+                                </div>
+
+                                <div class="columns is-mobile">
+                                    <div class="column">
+                                        <button id="clearButton" class="button is-large is-fullwidth is-danger">C</button>
+                                    </div>
+                                    <div class="column">
+                                        <button id="addButton" class="button is-large is-fullwidth">+</button>
+                                    </div>
+                                    <div class="column">
+                                        <button id="minusButton" class="button is-large is-fullwidth">-</button>
+                                    </div>
+                                    <div class="column">
+                                        <button id="equalsButton" class="button is-large is-fullwidth">=</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
