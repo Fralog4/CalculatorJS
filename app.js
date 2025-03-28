@@ -1,7 +1,7 @@
 const addButton= document.querySelector('#addButton');
 const subtractButton= document.querySelector('#minusButton');
 const multiplyButton= document.querySelector('#multiplyButton');
-const divideButton= document.querySelector('#divideButton');
+const divideButton= document.querySelector('#divisionButton');
 const equalButton= document.querySelector('#equalsButton');
 const clearButton= document.querySelector('#clearButton');
 const display= document.querySelector('#display');
@@ -16,77 +16,89 @@ numberButtons.forEach((button) => {
 });
 
 
-let num1=display.textContent;
+let num1=0;
 let num2=0;
 let operator='';
 let result=0;
 
-
-
 addButton.addEventListener('click',function(){
-    num1=display.textContent;
-    operator= operators[0];
-    //If the operator is already set, then do not put it again
-    if (num1[num1.length-1] in operators){
+    //Check if the last character is an operator
+    let lastChar= display.textContent.slice(-1);
+    if (operators.includes(lastChar)){
         return;
-    }
-    display.textContent=num1+operator;
-}
+    }    
+    num1 = display.textContent; 
+    operator = operators[0];
+    
+    display.textContent += operator;}
 );
 
 subtractButton.addEventListener('click',function(){
-    num1=display.textContent;
     operator= operators[1];
+    //Check if the last character is an operator
     let lastChar= display.textContent.slice(-1);
     if (operators.includes(lastChar)){
         return;
     }    
-    display.textContent=num1+operator;
-});
+    num1 = display.textContent; 
+    operator = operators[1];
+    display.textContent += operator;});
 
 multiplyButton.addEventListener('click',function(){
-    num1=display.textContent;
-    operator= operators[2];
     let lastChar= display.textContent.slice(-1);
     if (operators.includes(lastChar)){
         return;
     }    
-    display.textContent=num1+operator;
-}
+    num1 = display.textContent;
+    operator = operators[2];
+    display.textContent += operator;}
 );
-divideButton.addEventListener('click',function(){
-    num1=display.textContent;
 
-    operator= operators[3];
+divideButton.addEventListener('click',function(){
+
     let lastChar= display.textContent.slice(-1);
     if (operators.includes(lastChar)){
         return;
     }    
-    display.textContent=num1+operator;
+
+    num1 = display.textContent;
+    operator = operators[3];
+    display.textContent += operator;
 });
 
 equalButton.addEventListener('click',function(){
 
-    let num2=display.textContent.split(operator)[
-        1];
-
+    let parts = display.textContent.split(operator);
+    if (parts.length < 2 || parts[1] === '') {
+        return;
+    }
+    let num2 = parseFloat(parts[1]) || 0;
+    
     switch (operator){
         case '+':
             result=parseFloat(num1)+parseFloat(num2);
             display.textContent=result;
+            num1=result;
+            num2=0;
             break;
         case '-':
             result= parseFloat(num1)-parseFloat(num2);
             display.textContent=result;
+            num1=result;
+            num2=0;
             break;
 
         case '*':
             result= parseFloat(num1)*parseFloat(num2);
             display.textContent=result;
+            num1=result;
+            num2=0;
             break;
         case '/':
             result= parseFloat(num1)/parseFloat(num2);
             display.textContent=result;
+            num1=result;
+            num2=0;
             break;
         default:
             display.textContent='';
