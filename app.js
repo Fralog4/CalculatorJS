@@ -16,10 +16,10 @@ numberButtons.forEach((button) => {
 });
 
 
-let num1=0;
-let num2=0;
+let num1='';
+let num2='';
 let operator='';
-let result=0;
+let result='';
 
 addButton.addEventListener('click',function(){
     //Check if the last character is an operator
@@ -27,11 +27,10 @@ addButton.addEventListener('click',function(){
     if (operators.includes(lastChar)){
         return;
     }    
-    num1 = display.textContent; 
     operator = operators[0];
     
-    display.textContent += operator;}
-);
+    display.textContent += operator;
+});
 
 subtractButton.addEventListener('click',function(){
     operator= operators[1];
@@ -40,7 +39,6 @@ subtractButton.addEventListener('click',function(){
     if (operators.includes(lastChar)){
         return;
     }    
-    num1 = display.textContent; 
     operator = operators[1];
     display.textContent += operator;});
 
@@ -49,7 +47,6 @@ multiplyButton.addEventListener('click',function(){
     if (operators.includes(lastChar)){
         return;
     }    
-    num1 = display.textContent;
     operator = operators[2];
     display.textContent += operator;}
 );
@@ -60,8 +57,6 @@ divideButton.addEventListener('click',function(){
     if (operators.includes(lastChar)){
         return;
     }    
-
-    num1 = display.textContent;
     operator = operators[3];
     display.textContent += operator;
 });
@@ -72,33 +67,27 @@ equalButton.addEventListener('click',function(){
     if (parts.length < 2 || parts[1] === '') {
         return;
     }
-    let num2 = parseFloat(parts[1]) || 0;
+    let num1 = parseFloat(parts[0]) || '';
+    let num2 = parseFloat(parts[1]) || '';
     
     switch (operator){
         case '+':
             result=parseFloat(num1)+parseFloat(num2);
-            display.textContent=result;
-            num1=result;
-            num2=0;
+            display.textContent=result.toString();
             break;
         case '-':
             result= parseFloat(num1)-parseFloat(num2);
-            display.textContent=result;
-            num1=result;
-            num2=0;
+            display.textContent=result.toString();
+            
             break;
 
         case '*':
             result= parseFloat(num1)*parseFloat(num2);
-            display.textContent=result;
-            num1=result;
-            num2=0;
+            display.textContent=result.toString();
             break;
         case '/':
             result= parseFloat(num1)/parseFloat(num2);
-            display.textContent=result;
-            num1=result;
-            num2=0;
+            display.textContent=result.toString();
             break;
         default:
             display.textContent='';
@@ -108,8 +97,6 @@ equalButton.addEventListener('click',function(){
 
 clearButton.addEventListener('click',function(){
     display.textContent='';
-    num1=0;
-    num2=0;
     operator='';
-    result=0;
+    result='';
 });
