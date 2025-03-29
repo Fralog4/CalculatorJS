@@ -11,15 +11,18 @@ const operators= ['+','-','*','/'];
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', function(){
-        display.textContent+=button.textContent;
+        if (!isNotDone) return; //no input after equal button is pressed
+        display.textContent += button.textContent;
     });
 });
+
 
 
 let num1='';
 let num2='';
 let operator='';
 let result='';
+let isNotDone=true;
 
 addButton.addEventListener('click',function(){
     //Check if the last character is an operator
@@ -78,7 +81,6 @@ equalButton.addEventListener('click',function(){
         case '-':
             result= parseFloat(num1)-parseFloat(num2);
             display.textContent=result.toString();
-            
             break;
 
         case '*':
@@ -92,11 +94,13 @@ equalButton.addEventListener('click',function(){
         default:
             display.textContent='';
     }
+    isNotDone = false;
 
 });
 
-clearButton.addEventListener('click',function(){
-    display.textContent='';
-    operator='';
-    result='';
+clearButton.addEventListener('click', function(){
+    display.textContent = '';
+    operator = '';
+    result = '';
+    isNotDone = true; // Riattiva input dopo clear
 });
